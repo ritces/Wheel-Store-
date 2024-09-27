@@ -1,34 +1,27 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "src/main.ts",
-      "use": "@vercel/node"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "src/main.ts",
-      "methods": [
-        "GET",
-        "POST",
-        "PUT",
-        "PATCH",
-        "DELETE",
-        "OPTIONS"
-      ]
+      "src": "/assets/(.*)",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      },
+      "continue": true
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html"
     }
-  ],
-  "env": {
-    "POSTGRES_URL": "postgres://default:HfFKMt6yQx7S@ep-proud-salad-a4sfov34-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
-    "POSTGRES_PRISMA_URL": "postgres://default:HfFKMt6yQx7S@ep-proud-salad-a4sfov34-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15",
-    "POSTGRES_URL_NO_SSL": "postgres://default:HfFKMt6yQx7S@ep-proud-salad-a4sfov34-pooler.us-east-1.aws.neon.tech:5432/verceldb",
-    "POSTGRES_URL_NON_POOLING": "postgres://default:HfFKMt6yQx7S@ep-proud-salad-a4sfov34.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
-    "POSTGRES_USER": "default",
-    "POSTGRES_HOST": "ep-proud-salad-a4sfov34-pooler.us-east-1.aws.neon.tech",
-    "POSTGRES_PASSWORD": "HfFKMt6yQx7S",
-    "POSTGRES_DATABASE": "verceldb"
-  },
-  "buildCommand": "npx prisma generate && npm run build"
+  ]
 }
