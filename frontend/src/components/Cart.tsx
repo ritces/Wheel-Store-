@@ -47,7 +47,6 @@ export default function Cart({ open, onOpenChange }: CartProps) {
 
   const removeCookiByIndex = (index: number) => {
     const updatedOrders = cookies?.userOrders?.filter((_, i) => i !== index);
-    console.log(updatedOrders);
     if (updatedOrders.length) {
       setCookie(ORDER_COOKIE_KEY, updatedOrders);
     } else {

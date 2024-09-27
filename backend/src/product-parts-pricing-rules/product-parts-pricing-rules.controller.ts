@@ -17,11 +17,6 @@ export class ProductPartsPricingRulesController {
     private readonly productPartsPricingRulesService: ProductPartsPricingRulesService,
   ) {}
 
-  @Get('/conditions')
-  getAllPricingConditions() {
-    return this.productPartsPricingRulesService.getAllPricingConditions();
-  }
-
   @Post()
   create(
     @Body() createProductPartsPricingRuleDto: CreateProductPartsPricingRuleDto,
@@ -31,7 +26,6 @@ export class ProductPartsPricingRulesController {
     );
   }
 
-  @Get('/conditions')
   @Get()
   findAll() {
     return this.productPartsPricingRulesService.findAll();
@@ -56,5 +50,10 @@ export class ProductPartsPricingRulesController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.productPartsPricingRulesService.remove(+id);
+  }
+
+  @Get('/conditions/rules')
+  getAllPricingConditions() {
+    return this.productPartsPricingRulesService.getAllPricingConditions();
   }
 }

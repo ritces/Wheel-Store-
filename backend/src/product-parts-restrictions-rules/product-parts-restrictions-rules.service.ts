@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateProductPartsRestrictionsRuleDto } from './dto/create-product-parts-restrictions-rule.dto';
 import { UpdateProductPartsRestrictionsRuleDto } from './dto/update-product-parts-restrictions-rule.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { CreateRestrictionConditionDto } from './dto/create-restriction-condition.dto';
 import { UpdateRestrictionConditionDto } from './dto/update-restriction-condition.dto';
 

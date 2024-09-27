@@ -161,14 +161,14 @@ export const getProductRestrictionRulesByPartOptionId = async (
 //*** Product Pricing Conditions ***//
 
 export const getPricingConditions = async () => {
-  const res = await axiosManager.GET(`/pricing-rules/conditions`);
+  const res = await axiosManager.GET(`/pricing-rules/conditions/rules`);
   return res.data;
 };
 
 //*** Product Restriction Conditions ***//
 
 export const getRestrictionConditions = async () => {
-  const res = await axiosManager.GET(`/restriction-rules/conditions`);
+  const res = await axiosManager.GET(`/restriction-rules/conditions/rules`);
   return res.data;
 };
 

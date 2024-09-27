@@ -3,7 +3,7 @@ import { CreateProductPartsPricingRuleDto } from './dto/create-product-parts-pri
 import { UpdateProductPartsPricingRuleDto } from './dto/update-product-parts-pricing-rule.dto';
 import { CreatePricingConditionDto } from './dto/create-pricing-condition.dto';
 import { UpdatePricingConditionDto } from './dto/update-pricing-condition.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class ProductPartsPricingRulesService {

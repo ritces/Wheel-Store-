@@ -17,11 +17,6 @@ export class ProductPartsRestrictionsRulesController {
     private readonly productPartsRestrictionsRulesService: ProductPartsRestrictionsRulesService,
   ) {}
 
-  @Get('/conditions')
-  getAllRestrictionConditions() {
-    return this.productPartsRestrictionsRulesService.getAllRestrictionConditions();
-  }
-
   @Post()
   create(
     @Body()
@@ -57,5 +52,10 @@ export class ProductPartsRestrictionsRulesController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.productPartsRestrictionsRulesService.remove(+id);
+  }
+
+  @Get('/conditions/rules')
+  getAllRestrictionConditions() {
+    return this.productPartsRestrictionsRulesService.getAllRestrictionConditions();
   }
 }

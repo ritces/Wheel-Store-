@@ -238,6 +238,7 @@ const ProductOverviewPage = () => {
 
         // Check if selectedOptionIds is a subset of relevantRuleOptionIds
         if (
+          selectedOptionIds.length &&
           selectedOptionIds.every((id) => relevantRuleOptionIds.includes(id))
         ) {
           // If met, add all part_option_ids to the disabled set
@@ -251,6 +252,8 @@ const ProductOverviewPage = () => {
       selectedOptionIds.forEach((id) => {
         newDisabledOptions.delete(id);
       });
+
+      console.log('newDisabledOptions', newDisabledOptions);
 
       setDisabledOptions(newDisabledOptions);
     }

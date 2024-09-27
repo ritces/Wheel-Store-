@@ -1,17 +1,5 @@
 {
   "version": 2,
-  "env": {
-    "POSTGRES_URL": "@POSTGRES_URL",
-    "POSTGRES_PRISMA_URL": "@POSTGRES_PRISMA_URL",
-    "POSTGRES_URL_NO_SSL": "@POSTGRES_URL_NO_SSL",
-    "POSTGRES_URL_NON_POOLING": "@POSTGRES_URL_NON_POOLING",
-    "POSTGRES_USER": "@POSTGRES_USER",
-    "POSTGRES_HOST": "@POSTGRES_HOST",
-    "POSTGRES_PASSWORD": "@POSTGRES_PASSWORD",
-    "POSTGRES_DATABASE": "@POSTGRES_DATABASE",
-    "STRIPE_API_KEY": "@STRIPE_API_KEY",
-    "URL": "@URL"
-  },
   "builds": [
     {
       "src": "src/main.ts",
@@ -22,12 +10,18 @@
     {
       "src": "/(.*)",
       "dest": "src/main.ts",
-      "methods": [
-        "GET",
-        "POST",
-        "PUT",
-        "DELETE"
-      ]
+      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
     }
-  ]
+  ],
+  "env": {
+    "POSTGRES_URL": "postgres://default:HfFKMt6yQx7S@ep-proud-salad-a4sfov34-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
+    "POSTGRES_PRISMA_URL": "postgres://default:HfFKMt6yQx7S@ep-proud-salad-a4sfov34-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15",
+    "POSTGRES_URL_NO_SSL": "postgres://default:HfFKMt6yQx7S@ep-proud-salad-a4sfov34-pooler.us-east-1.aws.neon.tech:5432/verceldb",
+    "POSTGRES_URL_NON_POOLING": "postgres://default:HfFKMt6yQx7S@ep-proud-salad-a4sfov34.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
+    "POSTGRES_USER": "default",
+    "POSTGRES_HOST": "ep-proud-salad-a4sfov34-pooler.us-east-1.aws.neon.tech",
+    "POSTGRES_PASSWORD": "HfFKMt6yQx7S",
+    "POSTGRES_DATABASE": "verceldb"
+  },
+  "buildCommand": "npx prisma generate && npm run build"
 }
