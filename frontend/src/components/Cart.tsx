@@ -46,11 +46,12 @@ export default function Cart({ open, onOpenChange }: CartProps) {
   }, 0);
 
   const removeCookiByIndex = (index: number) => {
-    const updatedOrders = cookies?.userOrders?.filter((_, i) => i !== index);
+    const updatedOrders = cookies?.userOrders?.filter((_, i: number) => i !== index);
+    console.log(updatedOrders, "updatedOrders");
     if (updatedOrders.length) {
-      setCookie(ORDER_COOKIE_KEY, updatedOrders);
+      setCookie(ORDER_COOKIE_KEY, updatedOrders, { path: '/' });
     } else {
-      removeCookie(ORDER_COOKIE_KEY);
+      removeCookie(ORDER_COOKIE_KEY, { path: '/' });
     }
   };
 
